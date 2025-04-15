@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceb4isjm02a8k"]
+
+[ext_resource type="Script" uid="uid://cwar7ti7u16ga" path="res://Script/Player/player_movement.gd" id="1_5wxv7"]
+[ext_resource type="Texture2D" uid="uid://b784ynej5cd4q" path="res://Art/BigSwordKnight.png" id="2_y5hcb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tntwh"]
+size = Vector2(30, 32)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+platform_floor_layers = 1
+script = ExtResource("1_5wxv7")
+move_speed = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -16)
+shape = SubResource("RectangleShape2D_tntwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 30
+texture = ExtResource("2_y5hcb")
+offset = Vector2(3, -16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
