@@ -6,7 +6,7 @@ enum MOVING_STATE {IDLE, MOVING}
 @export var move_speed:float
 @export var moving_state:MOVING_STATE
 
-const cell_size:float = 32
+const cell_size:float = 16
 var next_pos:Vector2
 var prev_pos:Vector2
 var lerpValue:float
@@ -34,7 +34,7 @@ func _update_input():
 func _update_movment(delta:float):
 
     if moving_state == MOVING_STATE.IDLE: return
-    
+
     if lerpValue <1:
         position = lerp(prev_pos,next_pos,lerpValue)
         lerpValue += move_speed * delta

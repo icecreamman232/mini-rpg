@@ -7,6 +7,7 @@
 [node name="GameplayScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ydmtd")]
+position = Vector2(-48, 0)
 
 [node name="Slime" parent="." instance=ExtResource("2_ydmtd")]
 position = Vector2(188, 57)
