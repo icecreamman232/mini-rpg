@@ -1,25 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceb4isjm02a8k"]
 
 [ext_resource type="Script" uid="uid://cwar7ti7u16ga" path="res://Script/Player/player_movement.gd" id="1_5wxv7"]
-[ext_resource type="Texture2D" uid="uid://b784ynej5cd4q" path="res://Art/BigSwordKnight.png" id="2_y5hcb"]
+[ext_resource type="SpriteFrames" uid="uid://f5ww5ln20f75" path="res://Art/player-train-sprite-frames.tres" id="2_5wxv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tntwh"]
-size = Vector2(30, 32)
+size = Vector2(12, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
 collision_mask = 6
 platform_floor_layers = 1
 script = ExtResource("1_5wxv7")
-move_speed = 7.0
+move_speed = 100.0
+anim = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -16)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_tntwh")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 30
-texture = ExtResource("2_y5hcb")
-offset = Vector2(3, -16)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_5wxv7")
+animation = &"idle"
+frame_progress = 0.204875
+offset = Vector2(0, -16)
