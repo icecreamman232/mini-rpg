@@ -41,14 +41,18 @@ texture = ExtResource("3_2nftw")
 position = Vector2(4, -7)
 texture = ExtResource("3_2nftw")
 
-[node name="Gun" type="Node2D" parent="." node_paths=PackedStringArray("gun_sprite")]
+[node name="Gun" type="Node2D" parent="." node_paths=PackedStringArray("shoot_point", "gun_sprite")]
 position = Vector2(-5, -6)
 script = ExtResource("5_hck1p")
+shoot_point = NodePath("GunSprite/ShootPoint")
 gun_sprite = NodePath("GunSprite")
 
 [node name="GunSprite" type="Sprite2D" parent="Gun"]
 z_index = 5
 texture = ExtResource("3_y5hcb")
+
+[node name="ShootPoint" type="Node2D" parent="Gun/GunSprite"]
+position = Vector2(-7, -4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
