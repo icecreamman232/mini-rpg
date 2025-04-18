@@ -30,7 +30,6 @@ func _flip_player():
 	
 	is_face_right = (angle < 90 && angle > -90)
 
-
 	anim.flip_h = is_face_right
 	
 	PLAYER_FLIP.emit(is_face_right)
