@@ -11,17 +11,8 @@ const run_anim = "run"
 signal PLAYER_FLIP
 
 func _update_input():
-	move_direction = Vector2i.ZERO
-
-	if Input.is_action_pressed("move_down"):
-		move_direction.y = 1
-	if Input.is_action_pressed("move_up"):
-		move_direction.y = -1
-	if Input.is_action_pressed("move_left"):
-		move_direction.x = -1
-	if Input.is_action_pressed("move_right"):
-		move_direction.x = 1
-
+	move_direction = Input.get_vector("move_left","move_right","move_up","move_down")
+	move_direction.normalized()
 
 func _update_movement(delta:float):
 	position += move_direction * delta * move_speed
