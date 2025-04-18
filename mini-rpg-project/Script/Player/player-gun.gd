@@ -11,6 +11,7 @@ func _process(_delta: float) -> void:
     gun_sprite.look_at(mousePos)
     if !is_player_face_right:
         gun_sprite.rotation_degrees += 180
+    gun_sprite.rotation_degrees = wrap(gun_sprite.rotation_degrees,0,360)
 
 func flip_gun(is_face_right:bool):
     gun_sprite.flip_h = is_face_right
